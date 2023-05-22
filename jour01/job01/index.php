@@ -19,8 +19,17 @@
     echo "$str2  $str  $str3" ;
     ?>
     <?php
+    echo "<br>"
+    ?>
+    <?php
     $val = 6;
-    echo ($val+4);
+    $val +=4;
+    echo $val;
+    ?>
+    <?php
+    $val = 6;
+    $val +=4;
+    echo ($val+21);
     ?>
     <?php
     boolval(true)
