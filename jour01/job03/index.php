@@ -19,6 +19,29 @@ var_dump($an_int);
 var_dump($a_str);
 
 ?>
+<table>
+    <thead>
+        <tr>
+            <th colspan="2">type</th>
+            <th colspan="2">nom</th>
+            <th colspan="2">valeur</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><?php
+             echo gettype($a_str);
+            ?></td>
+            <td><?php
+             echo print($a_str);
+            ?>
+            </td>
+            <td><?php
+             echo $variable($a_str);
+            ?></td>
+        </tr>
+    </tbody>
+</table>
+
 </body>
 </html>
-À l’aide de php, générer un tableau html qui contient dans son header trois colonnes (type, nom, valeur) et dans son body, une ligne pour chacune des variables et de leurs informations.
