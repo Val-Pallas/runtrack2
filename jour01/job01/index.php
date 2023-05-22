@@ -28,5 +28,13 @@
     <?php
     boolval(false)
     ?>
+    <?php
+    $myBool = true;
+    echo $myBool;
+    
+    $myBool = false;
+    echo $myBool;
+    ?>
+
 </body>
 </html>
