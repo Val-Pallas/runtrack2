@@ -12,7 +12,9 @@
 <?php 
 echo "Hello La Plateforme";
 echo "<br>";
-/*echo "Hello La Plateforme";
+/*echo "Hello La Plateforme";/**
+ 
+ */
 
 
 ?>
