@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 
-<body>
+<body style="background-color:yellow";>
     <table border = "1">
         <tr>
             <th>Nombre</th>
