@@ -49,8 +49,8 @@
         echo "<th>Consonnes </th>";
         echo '</tr>';
         echo "<tr>";
-        echo "<td style='text-align:center> $counVoy</td>";
-        echo "<td style='text-align:center> $counCon</td>";
+        echo "<td > $counVoy</td>";
+        echo "<td > $counCon</td>";
         echo "</tr>";
 
     }
