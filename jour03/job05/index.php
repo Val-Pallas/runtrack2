@@ -29,7 +29,14 @@
     $counCon = 0;
     $counVoy = 0;
  
-
+    for ($i = 0; $i < strlen($str); $i++) {
+        $char = strtolower($str[$i]);
+        if (in_array($char, $consonnes)) {
+            $counCon++;
+        } elseif (in_array($char, $voyelles)) {
+            $counVoy++;
+        }
+    }
     for ($i = 0; $i <= count($consonnes); $i++) {
         if (in_array(substr($str, $i, 1), $consonnes)) {
             $counCon++;
