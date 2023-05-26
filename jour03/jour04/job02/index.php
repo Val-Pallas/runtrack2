@@ -2,7 +2,11 @@
 if (isset($_GET["fname"])) {
     echo '<table border = "1">';
     echo '<tr>';
-    echo "<th> First name </th>";
+    echo "<th> Argument </th>";
+    echo '<th> Valeur </th>';
+    echo "</tr>";
+    echo '<tr>';
+    echo '<td> name </td>';
     echo '<td>' .$_GET["fname"] .'</td>';
     echo "</tr>";
 
