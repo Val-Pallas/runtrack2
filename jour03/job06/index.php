@@ -17,11 +17,16 @@ Créez un algorithme qui parcourt et écrit cette chaine à l’envers.
 Ex. : redessop suon rap tnessinif edessop no'l euq sesohc seL</p>
 <P><?php
 $str = "Les choses que l'on possède finissent par nous posséder";
-
-echo strrev($str);
-
+for ($i = strlen($str) ; $i >= $str ; $i-- ) {
+    $reverseString .= $str[$i];
+}
+echo $reverseString;
 
 
 ?></P>
 </body>
+<footer>
+
+
+</footer>
 </html>
