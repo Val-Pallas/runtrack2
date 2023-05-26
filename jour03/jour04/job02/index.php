@@ -1,6 +1,13 @@
 <?php
 if (isset($_GET["fname"])) {
-    echo $_GET["fname"];
+    echo '<table border = "1">';
+    echo '<tr>';
+    echo "<th> First name </th>";
+    echo '<td>' .$_GET["fname"] .'</td>';
+    echo "</tr>";
+
+
+    echo '</table>';
 }
 ?>
 
