@@ -1,18 +1,21 @@
 <?php
-if (isset($_GET["fname"])) {
-    echo '<table border = "1">';
-    echo '<tr>';
-    echo "<th> Argument </th>";
-    echo '<th> Valeur </th>';
-    echo "</tr>";
-    echo '<tr>';
-    echo '<td> name </td>';
-    echo '<td>' .$_GET["fname"] .'</td>';
-    echo "</tr>";
 
+if (isset($_GET["fname"]) && $_GET["lname"])
+    echo '<table border="1">';
+    echo '<tr>';
+    echo '<th>Argument</th>';
+    echo '<th>Valeur</th>';
+    echo '</tr>';
+
+    foreach ($_GET as $key => $value) {
+        echo '<tr>';
+        echo '<td>' . $key . '</td>';
+        echo '<td>' . $value . '</td>';
+        echo '</tr>';
+    }
 
     echo '</table>';
-}
+
 ?>
 
 <!DOCTYPE html>
@@ -24,12 +27,12 @@ if (isset($_GET["fname"])) {
     <title>Document</title>
 </head>
 <body>
-    <p>Développer un algorithme qui affiche dans un tableau HTML <table> l’ensemble des
+    <p><hr>Développer un algorithme qui affiche dans un tableau HTML &lt;table&gt; l’ensemble des
 arguments $_GET et les valeurs associées.
-Il doit y avoir deux colonnes : argument et valeur.
+Il doit y avoir deux colonnes : argument et 
 Tips :
-Pour tester votre code, créez un formulaire HTML <form> de type GET avec différents
-champs <input> de type “text” et un <input> de type “submit” pour l’envoi.
+Pour tester votre code, créez un formulaire HTML &lt;form&gt; de type GET avec différents
+champs &lt;input&gt; de type “text” et un &lt;input&gt; de type “submit” pour l’envoi.
 Vous pouvez ensuite afficher avec echo directement dans votre page par exemple ce
 tableau :
 <table border="1">
@@ -44,11 +47,15 @@ tableau :
     </tr>
 </table>
  </p>
-
-<form action="index.php" method="$_GET">
-    <label for="First-name">First name:</label><br>
-    <input type="text" id="First-name" name="fname" value=" "><br>
-    <input type="submit" value="Submit">
-</form>
+<fieldset>
+    <legend>Info</legend>
+    <form action="index.php" method="$_GET">
+        <label for="First-name">First name:</label><br>
+        <input type="text" id="First-name" name="fname" value=" "><br>
+        <label   for="Last-name">last name:</label><br>
+        <input type="text" id="Last-name" name="lname" value=" "><br>
+        <input type="submit" value="Submit">
+    </form>
+</fieldset>    
 </body>
 </html>
