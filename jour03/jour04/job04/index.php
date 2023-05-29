@@ -33,5 +33,15 @@ nom Dupont
 </table>
  
     </p>
+    <fieldset>
+        <legend>Form Post</legend>
+        <form action="index.php" method="POST">
+            <label for="text"name="firstn">name</label>
+            <input type="text" name="Lastn">
+            <input type="button" value="ok">
+            <input type="datetime" name="date" id="date">
+            <input type="submit" value="submit"></label>
+        </form>
+    </fieldset>
 </body>
 </html>
