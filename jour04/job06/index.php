@@ -1,14 +1,13 @@
 <?php
-if (isset($_GET["nombre"])){
-    $nombre = ($_GET["nombre"]);
-    if ($nombre %2 == 0) {
+if ($_GET["nombre"]%2 == 0) {
+
 
         echo "$nombre Nombre pair";
     } else{
         echo "$nombre Nombre impair";
     }
     
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

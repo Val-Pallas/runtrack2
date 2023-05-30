@@ -1,46 +1,4 @@
-<?php
-if (isset($_GET["hauteur"]) && isset($_GET["largeur"])) {
-    $largeur = $_GET["largeur"];
-    $hauteur = $_GET["hauteur"];
 
-    // Display the roof
-    for ($i = 0; $i < $hauteur; $i++) {
-        for ($j = 0; $j < $largeur; $j++) {
-            if ($i < $hauteur / 2 && ($j >= ($largeur / 2 - $i) && $j <= ($largeur / 2 + $i))) {
-                echo "*";
-            } else {
-                echo " ";
-            }
-        }
-        echo "<br>";
-    }
-
-    // Display the walls
-    for ($i = 0; $i < $hauteur / 2; $i++) {
-        for ($j = 0; $j < $largeur; $j++) {
-            if ($j == 0 || $j == $largeur - 1) {
-                echo "|";
-            } else {
-                echo " ";
-            }
-        }
-        echo "<br>";
-    }
-}
-
-if (isset($_GET["hauteur"])&&($_GET["largeur"])) {
-    $largeur = $_GET["hauteur"];
-    $hauteur = $_GET["largeur"];
-    for ($i = 0; $i < $largeur; $i++) {
-        echo "/";
-    } 
-    for ($j = 0; $j < $hauteur; $j++) {
-
-        echo "\\";
-    }
-    
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,16 +17,19 @@ maison qui s’affiche sur la page doit ressembler à ceci :
 
 Si on entre les valeurs largeur = 20 et hauteur = 10 dans les champs,
 la maison qui s’affiche sur la page doit ressembler à ceci : /÷\</p>
-<fieldset style="border: aqua;">
+<fieldset style="border-color:brown;">
 <legend>Form pour maison</legend>
-<form action="index.php" method="GET">
-    <label for="largeur"> Largeur:</label>
-    <input type="number" id="largueur" name="largueur"><br>
+<hr>
+<form action="test.php" method="GET">
     <br>
     <label for="hauteur"> Hauteur:</label> 
     <input type="number" id="hauteur" name="hauteur"><br>
     <br>
-    <input type="submit" value="🏠">
+    <label for="largeur"> Largeur:</label>
+    <input type="number" id="largueur" name="largueur"><br>
+    <br><hr><input type="submit" value="🏠">
+   
+    <br><hr><input type="reset" value="Delete">
 </form>
 
 </fieldset>
