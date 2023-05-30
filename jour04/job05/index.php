@@ -1,29 +1,4 @@
-<?php
-if (isset($_POST["username"])&& ($_POST["password"]) ) {
-    if ($_POST["fname"] == "Jhon" && $_POST["Lname"] == "Rambo") {
-        echo "C’est pas ma guerre";
-    } else {
-        echo "Votre pire cauchemar";
-    }
-}
 
-if ($_POST=="Jhon" && $_POST == "Rambo"){
-    echo "C’est pas ma guerre" ;
-    }else {
-    echo  "Votre pire cauchemar";
-    }
-      
-if (isset($_POST["username"])&& ($_POST["password"]) ) {
-    foreach($_POST as $key=>$value) {
-        if($value == "Jhon" && $value == "Rambo" ){
-        echo "C’est pas ma guerre" ;
-        } elseif($value != "Jhon" && $value != "Rambo") {
-        echo "Votre pire cauchemar";
-    }
-}
-}
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,7 +17,7 @@ Après validation du formulaire :
 ● sinon afficher : “Votre pire cauchemar”.</p>
 <fieldset>
     <legend>Form Rambo</legend>
-    <form action="index.php" method="post">
+    <form action="result.php" method="post">
     <div>
     <label for="username">Username:</label>
     <input type="text" id="username" name="username">
