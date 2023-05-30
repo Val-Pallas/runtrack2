@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="favicon" type="image" href="/job07/casa.ico" />
     <title>Document</title>
 </head>
 <body>
@@ -20,16 +21,16 @@ la maison qui s’affiche sur la page doit ressembler à ceci : /÷\</p>
 <fieldset style="border-color:brown;">
 <legend>Form pour maison</legend>
 <hr>
-<form action="test.php" method="GET">
+<form action="test.php" target="_blank" method="GET">
     <br>
     <label for="hauteur"> Hauteur:</label> 
     <input type="number" id="hauteur" name="hauteur"><br>
     <br>
     <label for="largeur"> Largeur:</label>
-    <input type="number" id="largueur" name="largueur"><br>
+    <input type="number" id="largeur" name="largeur"><br>
     <br><hr><input type="submit" value="🏠">
-   
     <br><hr><input type="reset" value="Delete">
+    <a href="http://www.lesite.com" target="_blank">Le site</a>
 </form>
 
 </fieldset>

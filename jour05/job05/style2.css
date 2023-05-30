@@ -10,6 +10,13 @@ form {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
+@font-face {
+    font-family: "fires";
+    src: local("fires.tff"),
+    url("fires/fires.ttf");
+
+}
 h1 {
-    color: #777777;
+    color: red;
+    font-family: "FIRES";
 }

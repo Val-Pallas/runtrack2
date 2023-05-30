@@ -1,43 +1,14 @@
 <?php
-if (isset($_GET["hauteur"]) && isset($_GET["largeur"])) {
-    $largeur = $_GET["largeur"];
-    $hauteur = $_GET["hauteur"];
-
-    // Display the roof
-    for ($i = 0; $i < $hauteur; $i++) {
-        for ($j = 0; $j < $largeur; $j++) {
-            if ($i < $hauteur / 2 && ($j >= ($largeur / 2 - $i) && $j <= ($largeur / 2 + $i))) {
-                echo "*";
-            } else {
-                echo " ";
-            }
-        }
-        echo "<br>";
+$haut = $_GET["hauteur"];
+$larg= $_GET["largeur"];
+    #echo $_GET["hauteur"]."<br>";
+    #echo $_GET["largeur"]."<br>";
+    for($i = 0; $i <= $larg/2 ; $i++){
+        echo str_repeat("&nbsp;",$larg-($i*2))."/".str_repeat("_",$i*2)."\\"."</br>";
     }
+    for($i = 1; $i <= $haut; $i++){
+        echo "|".str_repeat("&nbsp;",$larg*2)."|"."</br>";
 
-    // Display the walls
-    for ($i = 0; $i < $hauteur / 2; $i++) {
-        for ($j = 0; $j < $largeur; $j++) {
-            if ($j == 0 || $j == $largeur - 1) {
-                echo "|";
-            } else {
-                echo " ";
-            }
-        }
-        echo "<br>";
     }
-}
-
-if (isset($_GET["hauteur"])&&($_GET["largeur"])) {
-    $largeur = $_GET["hauteur"];
-    $hauteur = $_GET["largeur"];
-    for ($i = 0; $i < $largeur; $i++) {
-        echo "/";
-    } 
-    for ($j = 0; $j < $hauteur; $j++) {
-
-        echo "\\";
-    }
-    
-}
+    echo "|".str_repeat("_",$larg)."|";
 ?>
