@@ -1,0 +1,29 @@
+
+/* The two text layers */
+#neonText span{
+    width:700px;
+    height:150px;
+    position:absolute;
+    left:0;
+    top:0;
+    
+}
+
+span#layer1{
+    z-index:100;
+}
+
+span#layer2{
+    background-position:left bottom;
+    z-index:99;
+}
+
+/* The h1 tag that holds the layers */
+#neonText{
+    color: aqua;
+    height:150px;
+    margin:180px auto 0;
+    position:relative;
+    width:650px;
+
+}
