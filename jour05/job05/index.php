@@ -1,7 +1,7 @@
 <?php
 if ($_POST["style"]) {
     $selectedStyle = $_POST["style"];
-    echo "Je choisis mon style " . $selectedStyle;
+    echo "Je choisis mon  " . $selectedStyle;
 }
 ?>
 
