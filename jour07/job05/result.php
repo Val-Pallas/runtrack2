@@ -1,45 +1,60 @@
 <?php
-require_once "templates/header.php";
-
-if (!playersRegistered()) {
-    header("location: index.php");
-}
-
-resetBoard();
+require_once "functions.php";
 ?>
+<!DOCTYPE html>
+<html>
 
-<table class="wrapper" cellpadding="0" cellspacing="0">
-    <tr>
-        <td>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <title>TicTacToe game</title>
 
-            <div class="welcome">
+    <link rel='stylesheet' href='style.css' type='text/css' />
+</head>
 
-                <h1>
-                    <?php
-                    if ($_GET['player']) {
-                        echo currentPlayer() . " won!";
-                    } else {
-                        echo "It's a tie!";
-                    }
-                    ?>
-                </h1>
+<body>
 
-                <div class="player-name">
-                    <?php echo playerName('x') ?>'s score: <b><?php echo score('x') ?></b>
-                </div>
+    <div class="wrapper">
+        <?php
+        if (!playersRegistered()) {
+        header("location: index.php");
+        }
 
-                <div class="player-name">
-                    <?php echo playerName('o') ?>' score: <b><?php echo score('o') ?></b>
-                </div>
+        resetBoard();
+        ?>
 
-                <a href="play.php">Play again</a><br />
+        <table class="wrapper" cellpadding="0" cellspacing="0">
+            <tr>
+                <td>
 
-                <a href="index.php" class="reset-btn">Reset</a>
-            </div>
+                    <div class="welcome">
 
-        </td>
-    </tr>
-</table>
+                        <h1>
+                            <?php
+                            if ($_GET['player']) {
+                                echo currentPlayer() . " won!";
+                            } else {
+                                echo "It's a tie!";
+                            }
+                            ?>
+                        </h1>
+
+                        <div class="player-name">
+                            <?php echo playerName('x') ?>'s score: <b><?php echo score('x') ?></b>
+                        </div>
+
+                        <div class="player-name">
+                            <?php echo playerName('o') ?>' score: <b><?php echo score('o') ?></b>
+                        </div>
+
+                        <a href="play.php">Play again</a><br />
+
+                        <a href="index.php" class="reset-btn">Reset</a>
+                    </div>
+
+                </td>
+            </tr>
+        </table>
 
 </body>
 

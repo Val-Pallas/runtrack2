@@ -1,83 +1,98 @@
 <?php
-require_once "templates/header.php";
-
-if (! playersRegistered()) {
-    header("location: index.php");
-}
-
-if ($_POST['cell']) {
-    $win = play($_POST['cell']);
-
-    if ($win) {
-        header("location: result.php?player=" . getTurn());
-    }
-}
-
-if (playsCount() >= 9) {
-    header("location: result.php");
-}
+require_once "functions.php";
 ?>
+<!DOCTYPE html>
+<html>
 
-<h2><?php echo currentPlayer() ?>'s turn</h2>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <title>TicTacToe game</title>
 
-<form method="post" action="play.php">
+    <link rel='stylesheet' href='style.css' type='text/css' />
+</head>
 
-    <table class="tic-tac-toe" cellpadding="0" cellspacing="0">
-        <tbody>
+<body>
+
+    <div class="wrapper">
 
         <?php
-        $lastRow = 0;
-        for ($i = 1; $i <= 9; $i++) {
-            $row = ceil($i / 3);
+        if (!playersRegistered()) {
+        header("location: index.php");
+        }
 
-            if ($row !== $lastRow) {
-                $lastRow = $row;
+        if ($_POST['cell']) {
+        $win = play($_POST['cell']);
 
-                if ($i > 1) {
-                    echo "</tr>";
-                }
+        if ($win) {
+        header("location: result.php?player=" . getTurn());
+        }
+        }
 
-                echo "<tr class='row-{$row}'>";
-            }
+        if (playsCount() >= 9) {
+        header("location: result.php");
+        }
+        ?>
 
-            $additionalClass = '';
+        <h2><?php echo currentPlayer() ?>'s turn</h2>
 
-            if ($i == 2 || $i == 8) {
-                $additionalClass = 'vertical-border';
-            }
-            else if ($i == 4 || $i == 6) {
-                $additionalClass = 'horizontal-border';
-            }
-            else if ($i == 5) {
-                $additionalClass = 'center-border';
-            }
-            ?>
+        <form method="post" action="play.php">
 
-            <td class="cell-<?= $i ?> <?= $additionalClass ?>">
-                <?php if (getCell($i) === 'x'): ?>
-                    X
-                <?php elseif (getCell($i) === 'o'): ?>
-                    O
-                <?php else: ?>
-                    <input type="radio" name="cell" value="<?= $i ?>" onclick="enableButton()"/>
-                <?php endif; ?>
-            </td>
+            <table class="tic-tac-toe" cellpadding="0" cellspacing="0">
+                <tbody>
 
-        <?php } ?>
+                    <?php
+                    $lastRow = 0;
+                    for ($i = 1; $i <= 9; $i++) {
+                        $row = ceil($i / 3);
 
-        </tr>
-        </tbody>
-    </table>
+                        if ($row !== $lastRow) {
+                            $lastRow = $row;
 
-    <button type="submit" disabled id="play-btn">Play</button>
+                            if ($i > 1) {
+                                echo "</tr>";
+                            }
 
-</form>
+                            echo "<tr class='row-{$row}'>";
+                        }
 
+                        $additionalClass = '';
+
+                        if ($i == 2 || $i == 8) {
+                            $additionalClass = 'vertical-border';
+                        } else if ($i == 4 || $i == 6) {
+                            $additionalClass = 'horizontal-border';
+                        } else if ($i == 5) {
+                            $additionalClass = 'center-border';
+                        }
+                    ?>
+
+                        <td class="cell-<?= $i ?> <?= $additionalClass ?>">
+                            <?php if (getCell($i) === 'x') : ?>
+                                X
+                            <?php elseif (getCell($i) === 'o') : ?>
+                                O
+                            <?php else : ?>
+                                <input type="radio" name="cell" value="<?= $i ?>" onclick="enableButton()" />
+                            <?php endif; ?>
+                        </td>
+
+                    <?php } ?>
+
+                    </tr>
+                </tbody>
+            </table>
+
+            <button type="submit" disabled id="play-btn">Play</button>
+
+        </form>
+
+    </div>
+</body>
+
+</html>
 <script type="text/javascript">
     function enableButton() {
         document.getElementById('play-btn').disabled = false;
     }
 </script>
-
-<?php
-require_once "templates/footer.php";
