@@ -1,24 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <p>
-    En utilisant PHP et PDO, connectez-vous à la base de données “jour09”. À l’aide d’une
-requête SQL, récupérez l’ensemble des informations de la table étudiants. Affichez le
-résultat de cette requête dans un tableau HTML. La première ligne de votre tableau html
-(thead) doit contenir le nom des champs. Les suivantes (tbody) doivent contenir les
-données présentes dans votre base de données.
-    </p>
-    <?php
+<?php
 // Connexion à la base de données
 $servername = "localhost";
 $username = "root";
-$password = "velvet";
+$password = "root";
 $dbname = "jour09";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -55,6 +39,25 @@ if ($result->num_rows > 0) {
 // Fermeture de la connexion à la base de données
 $conn->close();
 ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>
+        En utilisant PHP et PDO, connectez-vous à la base de données “jour09”. À l’aide d’une
+        requête SQL, récupérez l’ensemble des informations de la table étudiants. Affichez le
+        résultat de cette requête dans un tableau HTML. La première ligne de votre tableau html
+        (thead) doit contenir le nom des champs. Les suivantes (tbody) doivent contenir les
+        données présentes dans votre base de données.
+    </p>
 
 </body>
+
 </html>
