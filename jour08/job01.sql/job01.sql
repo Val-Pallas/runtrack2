@@ -52,6 +52,7 @@ mysql> CREATE TABLE salles (
     -> capacite INT
     -> );
 Query OK, 0 rows affected (0,08 sec)
+INSERT INTO salles (id, nom, etage, capacite) VALUES
 
 Exporter la base des donnes:
 mysqldump -u username -p password database_name > job01.sql
