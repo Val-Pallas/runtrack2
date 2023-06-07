@@ -1,40 +1,41 @@
 <?php
-// Connexion à la base de données
-$servername = "localhost";
+// Database credentials
+$host = "localhost";
+$dbname = "jour09";
 $username = "root";
 $password = "root";
-$dbname = "jour09";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Erreur de connexion à la base de données : " . $conn->connect_error);
-}
+try {
+    // Connect to the database
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-// Requête SQL pour récupérer les informations de la table "etudiants"
-$sql = "SELECT * FROM etudiants";
-$result = $conn->query($sql);
+    // Fetch all records from the "etudiants" table
+    $query = "SELECT * FROM etudiants";
+    $stmt = $pdo->query($query);
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Vérification du résultat de la requête
-if ($result->num_rows > 0) {
+    // Display the result in an HTML table
     echo "<table>";
-    echo "<thead><tr><th>ID</th><th>Prénom</th><th>Nom</th><th>Naissance</th><th>Sexe</th><th>Email</th></tr></thead>";
+    echo "<thead><tr>";
+    foreach ($result[0] as $column => $value) {
+        echo "<th>$column</th>";
+    }
+    echo "</tr></thead>";
     echo "<tbody>";
-    // Parcours des lignes de résultat
-    while ($row = $result->fetch_assoc()) {
+    foreach ($result as $row) {
         echo "<tr>";
-        echo "<td>" . $row["id"] . "</td>";
-        echo "<td>" . $row["prenom"] . "</td>";
-        echo "<td>" . $row["nom"] . "</td>";
-        echo "<td>" . $row["naissance"] . "</td>";
-        echo "<td>" . $row["sexe"] . "</td>";
-        echo "<td>" . $row["email"] . "</td>";
+        foreach ($row as $value) {
+            echo "<td>$value</td>";
+        }
         echo "</tr>";
     }
     echo "</tbody>";
     echo "</table>";
-} else {
-    echo "Aucun résultat trouvé.";
+} catch (PDOException $e) {
+    echo "Connection failed: " . $e->getMessage();
 }
+?>
 
 // Fermeture de la connexion à la base de données
 $conn->close();
